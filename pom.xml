@@ -1,79 +1,710 @@
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.1.4.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.1.4.RELEASE:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] +- myprivatepackage:myproject:jar:1.0-SNAPSHOT:compile
+[INFO] |  \- junit:junit:jar:4.12:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:2.1.2.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.2.RELEASE:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.8:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.8:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.8:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.2.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.14:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.14:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.14:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.0.14.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.2.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  +- org.springframework:spring-web:jar:5.1.4.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:5.1.4.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:5.1.4.RELEASE:compile
+[INFO] |     +- org.springframework:spring-aop:jar:5.1.4.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.1.4.RELEASE:compile
+[INFO] +- org.postgresql:postgresql:jar:42.2.5:compile
+[INFO] +- org.jsoup:jsoup:jar:1.8.3:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:2.1.2.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.1.2.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.1.2.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  +- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |  |  \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  |  |     \- org.ow2.asm:asm:jar:5.0.4:test
+[INFO] |  |  \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] |  +- org.assertj:assertj-core:jar:3.11.1:test
+[INFO] |  +- org.mockito:mockito-core:jar:2.23.4:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy:jar:1.9.7:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.9.7:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:2.6:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.3:compile
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-test:jar:5.1.4.RELEASE:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.6.2:test
+[INFO] |     \- javax.xml.bind:jaxb-api:jar:2.3.1:test
+[INFO] |        \- javax.activation:javax.activation-api:jar:1.2.0:test
+[INFO] +- io.jsonwebtoken:jjwt-api:jar:0.10.5:compile
+[INFO] +- io.jsonwebtoken:jjwt-impl:jar:0.10.5:runtime
+[INFO] \- io.jsonwebtoken:jjwt-jackson:jar:0.10.5:runtime
+[INFO]    \- com.fasterxml.jackson.core:jackson-databind:jar:2.9.8:compile
+[INFO]       +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[INFO]       \- com.fasterxml.jackson.core:jackson-core:jar:2.9.8:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.728 s
+[INFO] Finished at: 2024-03-11T11:33:53+02:00
+[INFO] ------------------------------------------------------------------------
+❯ snyk test  --all-projects --org=wesley-bentura-inc.-default
+
+Testing /Users/wesleybentura/artifactory_test/vulnerable-java-maven...
+
+Tested 42 dependencies for known issues, found 120 issues, 120 vulnerable paths.
+
+
+Issues to fix by upgrading:
+
+  Upgrade io.jsonwebtoken:jjwt-jackson@0.10.5 to io.jsonwebtoken:jjwt-jackson@0.12.0 to fix
+  ✗ Denial of Service (DoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038424] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Denial of Service (DoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-3038426] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-450207] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1009829] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ XML External Entity (XXE) Injection [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1048302] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1052449] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1052450] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1054588] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056414] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056416] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056417] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056418] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056419] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056420] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056421] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056424] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056425] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056426] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1056427] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1061931] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-2421244] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-570625] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-572300] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-572314] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-572316] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-608664] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-1047324] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-559094] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-560762] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-560766] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-561362] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-561373] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-561585] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-561586] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-561587] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-564887] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-564888] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-540500] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-548451] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-559106] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-455617] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-467014] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-467015] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-467016] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-469674] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-469676] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-471943] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-472980] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-6056407] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-174736] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+  ✗ Deserialization of Untrusted Data [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-COMFASTERXMLJACKSONCORE-450917] in com.fasterxml.jackson.core:jackson-databind@2.9.8
+    introduced by io.jsonwebtoken:jjwt-jackson@0.10.5 > com.fasterxml.jackson.core:jackson-databind@2.9.8
+
+  Upgrade org.jsoup:jsoup@1.8.3 to org.jsoup:jsoup@1.15.3 to fix
+  ✗ Cross-site Scripting (XSS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGJSOUP-2989728] in org.jsoup:jsoup@1.8.3
+    introduced by org.jsoup:jsoup@1.8.3
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGJSOUP-1567345] in org.jsoup:jsoup@1.8.3
+    introduced by org.jsoup:jsoup@1.8.3
+
+  Upgrade org.postgresql:postgresql@42.2.5 to org.postgresql:postgresql@42.3.3 to fix
+  ✗ Information Exposure [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGPOSTGRESQL-3146847] in org.postgresql:postgresql@42.2.5
+    introduced by org.postgresql:postgresql@42.2.5
+  ✗ Arbitrary Code Injection [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGPOSTGRESQL-2401816] in org.postgresql:postgresql@42.2.5
+    introduced by org.postgresql:postgresql@42.2.5
+  ✗ SQL Injection [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGPOSTGRESQL-2970521] in org.postgresql:postgresql@42.2.5
+    introduced by org.postgresql:postgresql@42.2.5
+  ✗ Remote Code Execution (RCE) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGPOSTGRESQL-2390459] in org.postgresql:postgresql@42.2.5
+    introduced by org.postgresql:postgresql@42.2.5
+  ✗ XML External Entity (XXE) Injection [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGPOSTGRESQL-571481] in org.postgresql:postgresql@42.2.5
+    introduced by org.postgresql:postgresql@42.2.5
+  ✗ SQL Injection (new) [Critical Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGPOSTGRESQL-6252740] in org.postgresql:postgresql@42.2.5
+    introduced by org.postgresql:postgresql@42.2.5
+
+  Upgrade org.springframework.boot:spring-boot-starter@2.1.2.RELEASE to org.springframework.boot:spring-boot-starter@3.2.0 to fix
+  ✗ Stack-based Buffer Overflow [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-3016888] in org.yaml:snakeyaml@1.23
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.yaml:snakeyaml@1.23
+  ✗ Stack-based Buffer Overflow [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-3016889] in org.yaml:snakeyaml@1.23
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.yaml:snakeyaml@1.23
+  ✗ Stack-based Buffer Overflow [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-3113851] in org.yaml:snakeyaml@1.23
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.yaml:snakeyaml@1.23
+  ✗ Improper Handling of Case Sensitivity [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-2689634] in org.springframework:spring-context@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot@2.1.2.RELEASE > org.springframework:spring-context@5.1.4.RELEASE
+  ✗ Arbitrary Code Execution [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-3152153] in org.yaml:snakeyaml@1.23
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.yaml:snakeyaml@1.23
+  ✗ Stack-based Buffer Overflow [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-3016891] in org.yaml:snakeyaml@1.23
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.yaml:snakeyaml@1.23
+  ✗ Improper Input Validation [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-2330878] in org.springframework:spring-core@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework:spring-core@5.1.4.RELEASE
+  ✗ Insufficient Hostname Verification [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-CHQOSLOGBACK-1726923] in ch.qos.logback:logback-core@1.2.3
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-logging@2.1.2.RELEASE > ch.qos.logback:logback-classic@1.2.3 > ch.qos.logback:logback-core@1.2.3
+  ✗ Improper Output Neutralization for Logs [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-2329097] in org.springframework:spring-core@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework:spring-core@5.1.4.RELEASE
+  ✗ Denial of Service (DoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-537645] in org.yaml:snakeyaml@1.23
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.yaml:snakeyaml@1.23
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-CHQOSLOGBACK-6094943] in ch.qos.logback:logback-core@1.2.3
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-logging@2.1.2.RELEASE > ch.qos.logback:logback-classic@1.2.3 > ch.qos.logback:logback-core@1.2.3
+  ✗ Uncontrolled Resource Consumption ('Resource Exhaustion') [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-CHQOSLOGBACK-6097493] in ch.qos.logback:logback-core@1.2.3
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-logging@2.1.2.RELEASE > ch.qos.logback:logback-classic@1.2.3 > ch.qos.logback:logback-core@1.2.3
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-CHQOSLOGBACK-6094942] in ch.qos.logback:logback-classic@1.2.3
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-logging@2.1.2.RELEASE > ch.qos.logback:logback-classic@1.2.3
+  ✗ Uncontrolled Resource Consumption ('Resource Exhaustion') [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-CHQOSLOGBACK-6097492] in ch.qos.logback:logback-classic@1.2.3
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-logging@2.1.2.RELEASE > ch.qos.logback:logback-classic@1.2.3
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-2806360] in org.yaml:snakeyaml@1.23
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.yaml:snakeyaml@1.23
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-6056527] in org.yaml:snakeyaml@1.23
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.yaml:snakeyaml@1.23
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORKBOOT-5564390] in org.springframework.boot:spring-boot-autoconfigure@2.1.2.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot-autoconfigure@2.1.2.RELEASE
+  ✗ Insecure Temporary File [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORKBOOT-2438287] in org.springframework.boot:spring-boot@2.1.2.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot@2.1.2.RELEASE
+
+  Upgrade org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE to org.springframework.boot:spring-boot-starter-web@3.1.9 to fix
+  ✗ HTTP Request Smuggling [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-3097829] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Information Exposure [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-3035793] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Session Fixation [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-538488] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Cross-site Scripting (XSS) [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-451458] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Improper Input Validation [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-5959654] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Incomplete Cleanup [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-5959972] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Access Restriction Bypass [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-5862028] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Denial of Service (DoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-3326459] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Unprotected Transport of Credentials [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-3369687] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Allocation of Resources Without Limits or Throttling [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-3369749] in org.springframework:spring-expression@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-webmvc@5.1.4.RELEASE > org.springframework:spring-expression@5.1.4.RELEASE
+  ✗ Allocation of Resources Without Limits or Throttling [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-5422217] in org.springframework:spring-expression@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-webmvc@5.1.4.RELEASE > org.springframework:spring-expression@5.1.4.RELEASE
+  ✗ Denial of Service (DoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-2823313] in org.springframework:spring-beans@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-web@5.1.4.RELEASE > org.springframework:spring-beans@5.1.4.RELEASE
+  ✗ Denial of Service (DoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-2434828] in org.springframework:spring-expression@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-webmvc@5.1.4.RELEASE > org.springframework:spring-expression@5.1.4.RELEASE
+  ✗ HTTP Request Smuggling [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1728266] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Improper Input Validation [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1728265] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Privilege Escalation [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-1296829] in org.springframework:spring-web@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-web@5.1.4.RELEASE
+  ✗ Information Exposure [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-6183062] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ HTTP Request Smuggling [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1080638] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Information Exposure [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1048292] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Information Disclosure [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1061939] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Cross-Site Scripting (XSS) (new) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGHIBERNATEVALIDATOR-6247635] in org.hibernate.validator:hibernate-validator@6.0.14.Final
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.hibernate.validator:hibernate-validator@6.0.14.Final
+  ✗ HTTP Request Smuggling [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1017119] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Denial of Service (DoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-584427] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Improper Input Validation [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGHIBERNATEVALIDATOR-568163] in org.hibernate.validator:hibernate-validator@6.0.14.Final
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.hibernate.validator:hibernate-validator@6.0.14.Final
+  ✗ Cross-site Scripting (XSS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGHIBERNATEVALIDATOR-541187] in org.hibernate.validator:hibernate-validator@6.0.14.Final
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.hibernate.validator:hibernate-validator@6.0.14.Final
+  ✗ Open Redirect (new) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-6261586] in org.springframework:spring-web@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-web@5.1.4.RELEASE
+  ✗ Improper Input Validation [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-6092281] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-5953331] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Privilege Escalation [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-2414084] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1728264] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Remote Code Execution (RCE) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1080637] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Improper Input Validation [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-1009832] in org.springframework:spring-web@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-web@5.1.4.RELEASE
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-1728268] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Remote Code Execution (RCE) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-570072] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Reflected File Download (RFD) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-559346] in org.springframework:spring-web@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-web@5.1.4.RELEASE
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-451342] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Remote Code Execution [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-451343] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Denial of Service (DoS) [High Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-451459] in org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-tomcat@2.1.2.RELEASE > org.apache.tomcat.embed:tomcat-embed-core@9.0.14
+  ✗ Remote Code Execution [Critical Severity][https://security.snyk.io/vuln/SNYK-JAVA-ORGSPRINGFRAMEWORK-2436751] in org.springframework:spring-beans@5.1.4.RELEASE
+    introduced by org.springframework.boot:spring-boot-starter-web@2.1.2.RELEASE > org.springframework:spring-web@5.1.4.RELEASE > org.springframework:spring-beans@5.1.4.RELEASE
+
+
+Issues with no direct upgrade or patch:
+  ✗ Information Exposure [Low Severity][https://security.snyk.io/vuln/SNYK-JAVA-JUNIT-1017047] in junit:junit@4.12
+    introduced by myprivatepackage:myproject@1.0-SNAPSHOT > junit:junit@4.12
+  This issue was fixed in versions: 4.13.1
+
+
+License issues:
+
+  ✗ EPL-1.0 license (new) [Medium Severity][https://snyk.io/vuln/snyk:lic:maven:junit:junit:EPL-1.0] in junit:junit@4.12
+    introduced by myprivatepackage:myproject@1.0-SNAPSHOT > junit:junit@4.12
+
+  ✗ Dual license: EPL-1.0, LGPL-2.1 (new) [Medium Severity][https://snyk.io/vuln/snyk:lic:maven:ch.qos.logback:logback-core:(EPL-1.0_OR_LGPL-2.1)] in ch.qos.logback:logback-core@1.2.3
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-logging@2.1.2.RELEASE > ch.qos.logback:logback-classic@1.2.3 > ch.qos.logback:logback-core@1.2.3
+
+  ✗ Dual license: EPL-1.0, LGPL-2.1 (new) [Medium Severity][https://snyk.io/vuln/snyk:lic:maven:ch.qos.logback:logback-classic:(EPL-1.0_OR_LGPL-2.1)] in ch.qos.logback:logback-classic@1.2.3
+    introduced by org.springframework.boot:spring-boot-starter@2.1.2.RELEASE > org.springframework.boot:spring-boot-starter-logging@2.1.2.RELEASE > ch.qos.logback:logback-classic@1.2.3
+
+
+
+Organization:      wesley-bentura-inc.-default
+Package manager:   maven
+Target file:       pom.xml
+Project name:      com.scalesec:vulnerable-java-maven
+Open source:       no
+Project path:      /Users/wesleybentura/artifactory_test/vulnerable-java-maven
+Licenses:          enabled
+
+
+❯ snyk monitor --all-projects --org=wesley-bentura-inc.-default
+
+Monitoring /Users/wesleybentura/artifactory_test/vulnerable-java-maven (com.scalesec:vulnerable-java-maven)...
+
+Explore this snapshot at https://app.snyk.io/org/wesley-bentura-inc.-default/project/3914dc07-b3bc-42eb-bac1-1679b401b339/history/df2dde4c-7697-429d-9ca5-306843d47c3b
+
+Notifications about newly disclosed issues related to these dependencies will be emailed to you.
+
+❯ mvn clean install
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------< com.scalesec:vulnerable-java-maven >-----------------
+[INFO] Building vulnerable-java-maven 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.1.0:clean (default-clean) @ vulnerable-java-maven ---
+[INFO] Deleting /Users/wesleybentura/artifactory_test/vulnerable-java-maven/target
+[INFO]
+[INFO] --- resources:3.1.0:resources (default-resources) @ vulnerable-java-maven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO]
+[INFO] --- compiler:3.8.0:compile (default-compile) @ vulnerable-java-maven ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /Users/wesleybentura/artifactory_test/vulnerable-java-maven/target/classes
+[INFO] /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/LinkLister.java: /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/LinkLister.java uses or overrides a deprecated API.
+[INFO] /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/LinkLister.java: Recompile with -Xlint:deprecation for details.
+[INFO] /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/Comment.java: /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/Comment.java uses unchecked or unsafe operations.
+[INFO] /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/Comment.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ vulnerable-java-maven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/test/resources
+[INFO]
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ vulnerable-java-maven ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /Users/wesleybentura/artifactory_test/vulnerable-java-maven/target/test-classes
+[INFO]
+[INFO] --- surefire:2.22.1:test (default-test) @ vulnerable-java-maven ---
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.scalesec.vulnado.VulnadoApplicationTests
+11:38:45.029 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.031 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+11:38:45.035 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+11:38:45.043 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.scalesec.vulnado.VulnadoApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+11:38:45.047 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.scalesec.vulnado.VulnadoApplicationTests], using SpringBootContextLoader
+11:38:45.048 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.scalesec.vulnado.VulnadoApplicationTests]: class path resource [com/scalesec/vulnado/VulnadoApplicationTests-context.xml] does not exist
+11:38:45.049 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.scalesec.vulnado.VulnadoApplicationTests]: class path resource [com/scalesec/vulnado/VulnadoApplicationTestsContext.groovy] does not exist
+11:38:45.049 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.scalesec.vulnado.VulnadoApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+11:38:45.049 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.scalesec.vulnado.VulnadoApplicationTests]: VulnadoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:38:45.064 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.107 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/wesleybentura/artifactory_test/vulnerable-java-maven/target/classes/com/scalesec/vulnado/VulnadoApplication.class]
+11:38:45.108 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.scalesec.vulnado.VulnadoApplication for test class com.scalesec.vulnado.VulnadoApplicationTests
+11:38:45.141 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.scalesec.vulnado.VulnadoApplicationTests]: using defaults.
+11:38:45.141 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+11:38:45.147 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+11:38:45.147 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+11:38:45.147 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4bb33f74, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@759d26fb, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3c73951, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3d5c822d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6f46426d, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@73700b80, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@49c7b90e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@10d307f1, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4d5b6aac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3e84448c]
+11:38:45.148 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.148 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.148 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.148 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.148 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.149 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.149 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@47987356 testClass = VulnadoApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@22ef9844 testClass = VulnadoApplicationTests, locations = '{}', classes = '{class com.scalesec.vulnado.VulnadoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5ea434c8, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@29f69090, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@12d3a4e9, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3b938003], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+11:38:45.150 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.150 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:38:45.158 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.2.RELEASE)
+
+2024-03-11 11:38:45.380  INFO 45466 --- [           main] c.s.vulnado.VulnadoApplicationTests      : Starting VulnadoApplicationTests on MacBook-Pro-de-Wesley.local with PID 45466 (started by wesleybentura in /Users/wesleybentura/artifactory_test/vulnerable-java-maven)
+2024-03-11 11:38:45.381  INFO 45466 --- [           main] c.s.vulnado.VulnadoApplicationTests      : No active profile set, falling back to default profiles: default
+2024-03-11 11:38:45.979  INFO 45466 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-11 11:38:46.073  INFO 45466 --- [           main] c.s.vulnado.VulnadoApplicationTests      : Started VulnadoApplicationTests in 0.91 seconds (JVM running for 1.243)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.24 s - in com.scalesec.vulnado.VulnadoApplicationTests
+2024-03-11 11:38:46.197  INFO 45466 --- [       Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- jar:3.1.1:jar (default-jar) @ vulnerable-java-maven ---
+[INFO] Building jar: /Users/wesleybentura/artifactory_test/vulnerable-java-maven/target/vulnerable-java-maven-0.0.1-SNAPSHOT.jar
+[INFO]
+[INFO] --- spring-boot:2.1.2.RELEASE:repackage (repackage) @ vulnerable-java-maven ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO]
+[INFO] --- install:2.5.2:install (default-install) @ vulnerable-java-maven ---
+[INFO] Installing /Users/wesleybentura/artifactory_test/vulnerable-java-maven/target/vulnerable-java-maven-0.0.1-SNAPSHOT.jar to /Users/wesleybentura/.m2/repository/com/scalesec/vulnerable-java-maven/0.0.1-SNAPSHOT/vulnerable-java-maven-0.0.1-SNAPSHOT.jar
+[INFO] Installing /Users/wesleybentura/artifactory_test/vulnerable-java-maven/pom.xml to /Users/wesleybentura/.m2/repository/com/scalesec/vulnerable-java-maven/0.0.1-SNAPSHOT/vulnerable-java-maven-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.720 s
+[INFO] Finished at: 2024-03-11T11:38:46+02:00
+[INFO] ------------------------------------------------------------------------
+❯ mvn dependency:tree
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------< com.scalesec:vulnerable-java-maven >-----------------
+[INFO] Building vulnerable-java-maven 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- dependency:3.1.1:tree (default-cli) @ vulnerable-java-maven ---
+[INFO] com.scalesec:vulnerable-java-maven:jar:0.0.1-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter:jar:2.1.2.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot:jar:2.1.2.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-context:jar:5.1.4.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.2.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.2.RELEASE:compile
+[INFO] |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.1:compile
+[INFO] |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.11.1:compile
+[INFO] |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  +- org.springframework:spring-core:jar:5.1.4.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:5.1.4.RELEASE:compile
+[INFO] |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] +- myprivatepackage:myproject:jar:1.0-SNAPSHOT:compile
+[INFO] |  +- junit:junit:jar:4.12:compile
+[INFO] |  \- ognl:ognl:jar:3.1.29:compile
+[INFO] |     \- org.javassist:javassist:jar:3.20.0-GA:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:2.1.2.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.2.RELEASE:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.8:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.8:compile
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.2.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.scalesec</groupId>
-	<artifactId>vulnerable-java-maven</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>vulnerable-java-maven</name>
-	<description>Demo project for Spring Boot</description>
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <parent>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.1.2.RELEASE</version>
+                <relativePath/> <!-- lookup parent from repository -->
+        </parent>
+        <groupId>com.scalesec</groupId>
+        <artifactId>vulnerable-java-maven</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <name>vulnerable-java-maven</name>
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.8:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.2.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.14:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.14:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.14:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.0.14.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.2.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  +- org.springframework:spring-web:jar:5.1.4.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:5.1.4.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:5.1.4.RELEASE:compile
+[INFO] |     +- org.springframework:spring-aop:jar:5.1.4.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.1.4.RELEASE:compile
+[INFO] +- org.postgresql:postgresql:jar:42.2.5:compile
+[INFO] +- org.jsoup:jsoup:jar:1.8.3:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:2.1.2.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:2.1.2.RELEASE:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:2.1.2.RELEASE:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:test
+[INFO] |  |  +- net.minidev:json-smart:jar:2.3:test
+[INFO] |  |  |  \- net.minidev:accessors-smart:jar:1.2:test
+[INFO] |  |  |     \- org.ow2.asm:asm:jar:5.0.4:test
+[INFO] |  |  \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO] |  +- org.assertj:assertj-core:jar:3.11.1:test
+[INFO] |  +- org.mockito:mockito-core:jar:2.23.4:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy:jar:1.9.7:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.9.7:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:2.6:test
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.3:compile
+[INFO] |  +- org.hamcrest:hamcrest-library:jar:1.3:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.0:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-test:jar:5.1.4.RELEASE:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.6.2:test
+[INFO] |     \- javax.xml.bind:jaxb-api:jar:2.3.1:test
+[INFO] |        \- javax.activation:javax.activation-api:jar:1.2.0:test
+[INFO] +- io.jsonwebtoken:jjwt-api:jar:0.10.5:compile
+[INFO] +- io.jsonwebtoken:jjwt-impl:jar:0.10.5:runtime
+[INFO] \- io.jsonwebtoken:jjwt-jackson:jar:0.10.5:runtime
+[INFO]    \- com.fasterxml.jackson.core:jackson-databind:jar:2.9.8:compile
+[INFO]       +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[INFO]       \- com.fasterxml.jackson.core:jackson-core:jar:2.9.8:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.709 s
+[INFO] Finished at: 2024-03-11T11:38:53+02:00
+[INFO] ------------------------------------------------------------------------
+❯ snyk monitor --all-projects --org=wesley-bentura-inc.-default
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
+Monitoring /Users/wesleybentura/artifactory_test/vulnerable-java-maven (com.scalesec:vulnerable-java-maven)...
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
+Explore this snapshot at https://app.snyk.io/org/wesley-bentura-inc.-default/project/3914dc07-b3bc-42eb-bac1-1679b401b339/history/d4b6087e-58f1-4fd7-b567-901ad9064036
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+Notifications about newly disclosed issues related to these dependencies will be emailed to you.
 
-		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>42.2.5</version>
-		</dependency>
+❯ vi pom.xml
+❯ mvn clean install
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------< com.scalesec:vulnerable-java-maven >-----------------
+[INFO] Building vulnerable-java-maven 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- clean:3.1.0:clean (default-clean) @ vulnerable-java-maven ---
+[INFO] Deleting /Users/wesleybentura/artifactory_test/vulnerable-java-maven/target
+[INFO]
+[INFO] --- resources:3.1.0:resources (default-resources) @ vulnerable-java-maven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource
+[INFO]
+[INFO] --- compiler:3.8.0:compile (default-compile) @ vulnerable-java-maven ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /Users/wesleybentura/artifactory_test/vulnerable-java-maven/target/classes
+[INFO] /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/LinkLister.java: /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/LinkLister.java uses or overrides a deprecated API.
+[INFO] /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/LinkLister.java: Recompile with -Xlint:deprecation for details.
+[INFO] /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/Comment.java: /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/Comment.java uses unchecked or unsafe operations.
+[INFO] /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/main/java/com/scalesec/vulnado/Comment.java: Recompile with -Xlint:unchecked for details.
+[INFO]
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ vulnerable-java-maven ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /Users/wesleybentura/artifactory_test/vulnerable-java-maven/src/test/resources
+[INFO]
+[INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ vulnerable-java-maven ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /Users/wesleybentura/artifactory_test/vulnerable-java-maven/target/test-classes
+[INFO]
+[INFO] --- surefire:2.22.1:test (default-test) @ vulnerable-java-maven ---
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.scalesec.vulnado.VulnadoApplicationTests
+11:45:07.849 [main] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.851 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+11:45:07.855 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+11:45:07.863 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.scalesec.vulnado.VulnadoApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+11:45:07.868 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.scalesec.vulnado.VulnadoApplicationTests], using SpringBootContextLoader
+11:45:07.869 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.scalesec.vulnado.VulnadoApplicationTests]: class path resource [com/scalesec/vulnado/VulnadoApplicationTests-context.xml] does not exist
+11:45:07.869 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.scalesec.vulnado.VulnadoApplicationTests]: class path resource [com/scalesec/vulnado/VulnadoApplicationTestsContext.groovy] does not exist
+11:45:07.869 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.scalesec.vulnado.VulnadoApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+11:45:07.870 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.scalesec.vulnado.VulnadoApplicationTests]: VulnadoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:45:07.886 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.926 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/wesleybentura/artifactory_test/vulnerable-java-maven/target/classes/com/scalesec/vulnado/VulnadoApplication.class]
+11:45:07.926 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.scalesec.vulnado.VulnadoApplication for test class com.scalesec.vulnado.VulnadoApplicationTests
+11:45:07.959 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.scalesec.vulnado.VulnadoApplicationTests]: using defaults.
+11:45:07.960 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+11:45:07.964 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+11:45:07.964 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+11:45:07.965 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3c73951, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3d5c822d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6f46426d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@73700b80, org.springframework.test.context.support.DirtiesContextTestExecutionListener@49c7b90e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@10d307f1, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4d5b6aac, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3e84448c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4a7f959b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@429bffaa]
+11:45:07.965 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.965 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.966 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.966 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.966 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.966 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.967 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@6283d8b8 testClass = VulnadoApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3b6ddd1d testClass = VulnadoApplicationTests, locations = '{}', classes = '{class com.scalesec.vulnado.VulnadoApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4ae3c1cd, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@ca263c2, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@25a65b77, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@78b1cc93], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+11:45:07.967 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.967 [main] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.scalesec.vulnado.VulnadoApplicationTests]
+11:45:07.978 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
 
-		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
-		<dependency>
-		    <groupId>org.jsoup</groupId>
-		    <artifactId>jsoup</artifactId>
-		    <version>1.8.3</version>
-		</dependency>
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.2.RELEASE)
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>io.jsonwebtoken</groupId>
-		    <artifactId>jjwt-api</artifactId>
-		    <version>0.10.5</version>
-		</dependency>
-		<dependency>
-		    <groupId>io.jsonwebtoken</groupId>
-		    <artifactId>jjwt-impl</artifactId>
-		    <version>0.10.5</version>
-		    <scope>runtime</scope>
-		</dependency>
-		<dependency>
-		    <groupId>io.jsonwebtoken</groupId>
-		    <artifactId>jjwt-jackson</artifactId>
-		    <version>0.10.5</version>
-		    <scope>runtime</scope>
-		</dependency>
-	</dependencies>
+2024-03-11 11:45:08.287  INFO 46145 --- [           main] c.s.vulnado.VulnadoApplicationTests      : Starting VulnadoApplicationTests on MacBook-Pro-de-Wesley.local with PID 46145 (started by wesleybentura in /Users/wesleybentura/artifactory_test/vulnerable-java-maven)
+2024-03-11 11:45:08.288  INFO 46145 --- [           main] c.s.vulnado.VulnadoApplicationTests      : No active profile
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
+        <parent>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>2.1.2.RELEASE</version>
+                <relativePath/> <!-- lookup parent from repository -->
+        </parent>
+        <groupId>com.scalesec</groupId>
+        <artifactId>vulnerable-java-maven</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <name>vulnerable-java-maven</name>
+        <description>Demo project for Spring Boot</description>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+        <properties>
+                <java.version>1.8</java.version>
+        </properties>
+
+        <dependencies>
+                <dependency>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                </dependency>
+                <dependency>
+                        <groupId>myprivatepackage</groupId>
+                        <artifactId>myproject</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                </dependency>
+                <dependency>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-web</artifactId>
+                </dependency>
+
+                <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+                <dependency>
+                        <groupId>org.postgresql</groupId>
+                        <artifactId>postgresql</artifactId>
+                        <version>42.2.5</version>
+                </dependency>
+
+                <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+                <dependency>
+                    <groupId>org.jsoup</groupId>
+                    <artifactId>jsoup</artifactId>
+                    <version>1.8.3</version>
+                </dependency>
+                <dependency>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-test</artifactId>
+                        <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>io.jsonwebtoken</groupId>
+                    <artifactId>jjwt-api</artifactId>
+                    <version>0.10.5</version>
+                </dependency>
+                <dependency>
+                    <groupId>io.jsonwebtoken</groupId>
+                    <artifactId>jjwt-impl</artifactId>
+                    <version>0.10.5</version>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>io.jsonwebtoken</groupId>
+                    <artifactId>jjwt-jackson</artifactId>
+                    <version>0.10.5</version>
+                    <scope>runtime</scope>
+                </dependency>
+        </dependencies>
+
+        <build>
+                <plugins>
+                        <plugin>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-maven-plugin</artifactId>
+                        </plugin>
+                </plugins>
+        </build>
 
 </project>
